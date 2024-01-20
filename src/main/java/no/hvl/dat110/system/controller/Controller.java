@@ -28,7 +28,7 @@ public class Controller  {
 		// TODO - START
 		
 		// create local display and sensor stub objects
-		// connect to sensor and display RPC servers
+		// connect to sensor and display RPC servers - using the RPCClients
 		// read value from sensor using RPC and write to display using RPC
 			
 		if (true)
