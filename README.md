@@ -55,7 +55,7 @@ The start-code and code containing unit tests is available via this git reposito
 
 One member of the group should start by entering the following repository on github:
 
-https://github.com/lmkr/dat110-project1-rpc-startcode
+https://github.com/selabhvl/dat110-project1-rpc-startcode
 
 and then do a *Use this template* of the repository (see button in the upper right of the repository web page as shown in the figure below).
 
