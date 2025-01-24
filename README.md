@@ -6,7 +6,7 @@ The project will be / has been introduced in the lectures See Canvas for details
 
 ### Organisation
 
-The project is to be undertaken in **groups of 2-4 students**.
+The project is to be undertaken in **groups of 2-5 students**.
 
 The labs can be used to obtain help with the project. You are strongly encouraged to also use the DAT110 Discord server throughout the project if you encounter issues or have questions related to the project. 
 
