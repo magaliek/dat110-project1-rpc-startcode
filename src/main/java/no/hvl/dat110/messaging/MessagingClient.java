@@ -20,14 +20,18 @@ public class MessagingClient {
 	}
 	
 	// setup of a messaging connection to a messaging server
-	public MessageConnection connect () throws IOException {
+	public MessageConnection connect () {
 
 		// client-side socket for underlying TCP connection to messaging server
-		Socket clientSocket = new Socket(MessageUtils.MESSAGINGHOST, MessageUtils.MESSAGINGPORT);
+        Socket clientSocket = null;
+        try {
+            clientSocket = new Socket(server, port);
+        } catch (IOException e) {
+            System.err.println("connection failed");
+			return null;
+        }
 
-		MessageConnection connection = new MessageConnection(clientSocket);
-		
 
-		return connection;
+        return new MessageConnection(clientSocket);
 	}
 }

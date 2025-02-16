@@ -27,6 +27,7 @@ public class MessageConnection {
 
 			System.out.println("Connection: " + ex.getMessage());
 			ex.printStackTrace();
+			close();
 		}
 	}
 
