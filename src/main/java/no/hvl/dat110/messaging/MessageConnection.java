@@ -31,24 +31,36 @@ public class MessageConnection {
 		}
 	}
 
-	public void send(Message message) throws IOException {
+	public void send(Message message) {
 
 		byte[] data = MessageUtils.encapsulate(message);
-		outStream.write(data);
-		outStream.flush();
-	}
+        try {
+            outStream.write(data);
+            outStream.flush();
+        } catch (IOException e) {
+            System.err.println("connection failure");
+        }
+    }
 
-	public Message receive() throws IOException {
+	public Message receive() {
 
 		byte[] buffer = new byte[128];
-		int bytesRead = inStream.read(buffer);
+        int bytesRead = 0;
+        try {
+            bytesRead = inStream.read(buffer);
+        } catch (IOException e) {
+            System.err.println("failed reading");
+        }
 
-		while (bytesRead < 128 && bytesRead != -1) {
-			int currentRead = inStream.read(buffer, bytesRead, 128-bytesRead);
-			if (currentRead != -1) {
+        while (bytesRead < 128 && bytesRead != -1) {
+            int currentRead = 0;
+            try {
+                currentRead = inStream.read(buffer, bytesRead, 128-bytesRead);
+            } catch (IOException e) {
+                System.err.println("failed reading");
+            }
+            if (currentRead != -1) {
 				bytesRead += currentRead;
-			} else {
-				throw new IOException("end of stream reached before finished reading");
 			}
 		}
 
