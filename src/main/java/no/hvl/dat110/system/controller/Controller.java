@@ -1,6 +1,5 @@
 package no.hvl.dat110.system.controller;
 
-import no.hvl.dat110.TODO;
 import no.hvl.dat110.rpc.RPCClient;
 import no.hvl.dat110.rpc.RPCClientStopStub;
 
@@ -24,17 +23,13 @@ public class Controller  {
 		// setup stop methods in the RPC middleware
 		RPCClientStopStub stopdisplay = new RPCClientStopStub(displayclient);
 		RPCClientStopStub stopsensor = new RPCClientStopStub(sensorclient);
-				
-		// TODO - START
-		
-		// create local display and sensor stub objects
-		// connect to sensor and display RPC servers - using the RPCClients
-		// read value from sensor using RPC and write to display using RPC
-			
-		if (true)
-			throw new UnsupportedOperationException(TODO.method());
-		
-		// TODO - END
+
+		DisplayStub displayStub = new DisplayStub(displayclient);
+		SensorStub sensorStub = new SensorStub(sensorclient);
+		displayclient.connect();
+		sensorclient.connect();
+		int value = sensorStub.read();
+		displayStub.write(String.valueOf(value));
 		
 		stopdisplay.stop();
 		stopsensor.stop();
