@@ -8,12 +8,7 @@ import no.hvl.dat110.system.sensor.SensorImpl;
 public class DisplayDevice {
 	
 	public static void main(String[] args) {
-		
-		System.out.println("Display server starting ...");
-		
-		// TODO - START
-		// implement the operation of the display RPC server
-		// see how this is done for the sensor RPC server in SensorDevice
+
 		System.out.println("Display server starting ...");
 
 		RPCServer displayServer = new RPCServer(Common.DISPLAYPORT);
